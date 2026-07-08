@@ -1,0 +1,48 @@
+import { ShimmerButton } from './ShimmerButton'
+
+interface LandingScreenProps {
+  onStart: () => void
+  isExiting: boolean
+}
+
+export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
+  return (
+    <div
+      data-testid="landing-screen"
+      className={`flex min-h-screen flex-col items-center justify-center px-6 transition-all duration-700 ${
+        isExiting ? 'pointer-events-none scale-[0.98] opacity-0' : 'opacity-100'
+      }`}
+    >
+      <div className="mx-auto w-full max-w-xl text-center">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-4 py-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
+            Device compatibility check
+          </span>
+        </div>
+
+        <h1 className="text-5xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl">
+          Can your browser
+          <span className="block text-neutral-500">talk to hardware?</span>
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-neutral-400 sm:text-lg">
+          See if your browser can connect to USB devices, serial ports, and
+          Bluetooth accessories — no setup required.
+        </p>
+
+        <ShimmerButton
+          onClick={onStart}
+          testId="run-test-button"
+          className="copy-cta mt-10 w-full max-w-sm rounded-2xl border border-neutral-700 bg-white px-10 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white active:scale-[0.98] sm:w-auto"
+        >
+          Check my browser
+        </ShimmerButton>
+
+        <p className="mt-6 text-xs text-neutral-600">
+          No permissions requested · Results stay on your device
+        </p>
+      </div>
+    </div>
+  )
+}
