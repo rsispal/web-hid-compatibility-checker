@@ -1,0 +1,1 @@
+# web-hid-compatibility-checker
