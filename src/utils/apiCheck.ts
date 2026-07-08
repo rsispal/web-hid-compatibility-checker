@@ -7,9 +7,9 @@ interface ApiDefinition {
 }
 
 const API_DEFINITIONS: ApiDefinition[] = [
-  { id: 'web-usb', name: 'Web USB', navigatorKey: 'usb' },
-  { id: 'web-serial', name: 'Web Serial', navigatorKey: 'serial' },
-  { id: 'web-bluetooth', name: 'Web Bluetooth', navigatorKey: 'bluetooth' },
+  { id: 'web-usb', name: 'USB devices', navigatorKey: 'usb' },
+  { id: 'web-serial', name: 'Serial connections', navigatorKey: 'serial' },
+  { id: 'web-bluetooth', name: 'Bluetooth devices', navigatorKey: 'bluetooth' },
 ]
 
 function resolveStatus(hasApi: boolean, isSecureContext: boolean): ApiStatus {
@@ -21,11 +21,11 @@ function resolveStatus(hasApi: boolean, isSecureContext: boolean): ApiStatus {
 function buildMessage(name: string, status: ApiStatus): string {
   switch (status) {
     case 'supported':
-      return `${name} is available in this browser.`
+      return `Your browser can connect to ${name.toLowerCase()}.`
     case 'warning':
-      return `${name} is present but requires a secure context (HTTPS).`
+      return `Supported here, but only on secure (HTTPS) pages.`
     case 'unsupported':
-      return `${name} is not available in this browser.`
+      return `Not supported in this browser yet.`
   }
 }
 
@@ -64,10 +64,10 @@ export async function runApiChecksWithDelay(
 export function statusLabel(status: ApiStatus): string {
   switch (status) {
     case 'supported':
-      return 'Supported'
+      return 'Works'
     case 'warning':
-      return 'Partial'
+      return 'Limited'
     case 'unsupported':
-      return 'Not Supported'
+      return 'Unavailable'
   }
 }

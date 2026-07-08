@@ -10,17 +10,17 @@ const ICON_CONFIG: Record<
   { label: string; ring: string; icon: string }
 > = {
   supported: {
-    label: 'Supported',
+    label: 'Works',
     ring: 'border-white/40 bg-white/10',
     icon: 'text-white',
   },
   warning: {
-    label: 'Partial support',
+    label: 'Limited support',
     ring: 'border-neutral-400/50 bg-neutral-500/15',
     icon: 'text-neutral-100',
   },
   unsupported: {
-    label: 'Not supported',
+    label: 'Unavailable',
     ring: 'border-neutral-600 bg-neutral-900',
     icon: 'text-neutral-400',
   },

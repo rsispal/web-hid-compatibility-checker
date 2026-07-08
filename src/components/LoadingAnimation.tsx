@@ -22,10 +22,10 @@ export function LoadingAnimation() {
       </div>
       <div className="text-center">
         <p className="text-xl font-bold tracking-tight text-white">
-          Scanning browser capabilities
+          Checking your browser…
         </p>
         <p className="mt-2 text-sm text-neutral-500">
-          Probing Web USB, Web Serial &amp; Web Bluetooth APIs…
+          Looking at USB, serial, and Bluetooth support
         </p>
       </div>
     </div>

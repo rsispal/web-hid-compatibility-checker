@@ -20,34 +20,51 @@ export function CopyShareButton({ results }: CopyShareButtonProps) {
   }
 
   return (
-    <button
-      type="button"
-      onClick={handleCopy}
-      data-testid="copy-share-button"
-      className="group relative w-full overflow-hidden rounded-2xl border border-neutral-700 bg-white px-8 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] active:scale-[0.99]"
-    >
-      <span className="relative z-10 flex items-center justify-center gap-3">
-        {copied ? (
-          <>
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            Copied to clipboard
-          </>
-        ) : (
-          <>
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
-            Copy report to share
-          </>
-        )}
-      </span>
-      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-neutral-200/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-    </button>
+    <div className="flex flex-col items-center gap-3">
+      <p className="text-center text-sm font-medium text-neutral-400">
+        Send us your results so we can help
+      </p>
+      <button
+        type="button"
+        onClick={handleCopy}
+        data-testid="copy-share-button"
+        className="copy-cta group relative w-full overflow-hidden rounded-2xl border-2 border-white bg-white px-8 py-6 text-black transition-transform duration-300 active:scale-[0.99]"
+      >
+        <span className="copy-shimmer pointer-events-none absolute inset-0" aria-hidden />
+        <span className="relative z-10 flex flex-col items-center gap-1.5">
+          {copied ? (
+            <>
+              <span className="flex items-center gap-2 text-xl font-black tracking-tight">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Copied!
+              </span>
+              <span className="text-sm font-semibold text-neutral-600">
+                Now paste into your email and send
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="flex items-center gap-2 text-xl font-black tracking-tight">
+                Copy results &amp; email us
+                <svg
+                  className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+              <span className="text-sm font-semibold text-neutral-600">
+                Tap here → paste into your message
+              </span>
+            </>
+          )}
+        </span>
+      </button>
+    </div>
   )
 }

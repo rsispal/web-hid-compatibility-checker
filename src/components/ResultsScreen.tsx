@@ -15,13 +15,13 @@ export function ResultsScreen({ results, onRetest }: ResultsScreenProps) {
     <div className="animate-fade-in mx-auto w-full max-w-2xl px-6 py-16" data-testid="results-screen">
       <header className="mb-10 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-          Diagnostics complete
+          Check complete
         </p>
         <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
-          {supportedCount} of {results.apis.length} APIs ready
+          {supportedCount} of {results.apis.length} connections work
         </h2>
         <p className="mt-3 text-neutral-400">
-          Your browser compatibility results are below.
+          Here&apos;s what your browser can do.
         </p>
       </header>
 
@@ -44,7 +44,7 @@ export function ResultsScreen({ results, onRetest }: ResultsScreenProps) {
           onClick={onRetest}
           className="w-full rounded-xl border border-neutral-800 py-3.5 text-sm font-semibold text-neutral-400 transition-colors hover:border-neutral-600 hover:text-white"
         >
-          Run test again
+          Check again
         </button>
       </section>
     </div>

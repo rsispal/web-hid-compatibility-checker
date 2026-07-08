@@ -9,10 +9,10 @@ async function runFullTestFlow(page: import('@playwright/test').Page) {
   await page.getByTestId('run-test-button').click()
 
   await expect(page.getByTestId('loading-screen')).toBeVisible({ timeout: 5000 })
-  await expect(page.getByText('Scanning browser capabilities')).toBeVisible()
+  await expect(page.getByText('Checking your browser')).toBeVisible()
 
   await expect(page.getByTestId('results-screen')).toBeVisible({ timeout: 15000 })
-  await expect(page.getByText(/of 3 APIs ready/)).toBeVisible()
+  await expect(page.getByText(/of 3 connections work/)).toBeVisible()
 }
 
 test.describe('Web API Compatibility Checker', () => {
@@ -72,13 +72,13 @@ test.describe('Web API Compatibility Checker', () => {
     const copyButton = page.getByTestId('copy-share-button')
     await expect(copyButton).toBeVisible()
     await copyButton.click()
-    await expect(copyButton).toContainText(/copied to clipboard/i)
+    await expect(copyButton).toContainText(/copied!/i)
   })
 
   test('run test again returns to landing screen', async ({ page }) => {
     await runFullTestFlow(page)
 
-    await page.getByRole('button', { name: /run test again/i }).click()
+    await page.getByRole('button', { name: /check again/i }).click()
     await expect(page.getByTestId('landing-screen')).toBeVisible()
     await expect(page.getByTestId('run-test-button')).toBeVisible()
   })

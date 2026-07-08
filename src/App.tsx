@@ -60,7 +60,7 @@ export default function App() {
       </main>
 
       <footer className="relative z-10 border-t border-neutral-900 py-4 text-center text-xs text-neutral-600">
-        Web API Compatibility Checker
+        Device Compatibility Checker
       </footer>
     </div>
   )

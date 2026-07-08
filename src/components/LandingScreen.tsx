@@ -15,7 +15,7 @@ export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-4 py-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
-            Browser API Scanner
+            Device compatibility check
           </span>
         </div>
 
@@ -25,8 +25,8 @@ export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
         </h1>
 
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-neutral-400 sm:text-lg">
-          Instantly check whether your browser supports Web USB, Web Serial, and
-          Web Bluetooth — the APIs that connect the web to real-world devices.
+          See if your browser can connect to USB devices, serial ports, and
+          Bluetooth accessories — no setup required.
         </p>
 
         <button
@@ -35,7 +35,7 @@ export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
           data-testid="run-test-button"
           className="pulse-glow mt-10 w-full max-w-sm rounded-2xl border border-neutral-700 bg-white px-10 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white hover:shadow-[0_0_48px_rgba(255,255,255,0.15)] active:scale-[0.98] sm:w-auto"
         >
-          Run compatibility test
+          Check my browser
         </button>
 
         <p className="mt-6 text-xs text-neutral-600">
