@@ -75,6 +75,21 @@ test.describe('Web API Compatibility Checker', () => {
     await expect(copyButton).toContainText(/copied!/i)
   })
 
+  test('primary buttons include a visible shimmer sweep', async ({ page }) => {
+    await page.goto('/')
+
+    const landingButton = page.getByTestId('run-test-button')
+    await expect(landingButton).toBeVisible()
+    await expect(landingButton.locator('.btn-shimmer__beam')).toBeAttached()
+
+    await landingButton.click()
+    await expect(page.getByTestId('results-screen')).toBeVisible({ timeout: 15000 })
+
+    const copyButton = page.getByTestId('copy-share-button')
+    await expect(copyButton).toBeVisible()
+    await expect(copyButton.locator('.btn-shimmer__beam')).toBeAttached()
+  })
+
   test('run test again returns to landing screen', async ({ page }) => {
     await runFullTestFlow(page)
 

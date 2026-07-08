@@ -1,3 +1,5 @@
+import { ShimmerButton } from './ShimmerButton'
+
 interface LandingScreenProps {
   onStart: () => void
   isExiting: boolean
@@ -29,14 +31,13 @@ export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
           Bluetooth accessories — no setup required.
         </p>
 
-        <button
-          type="button"
+        <ShimmerButton
           onClick={onStart}
-          data-testid="run-test-button"
-          className="pulse-glow mt-10 w-full max-w-sm rounded-2xl border border-neutral-700 bg-white px-10 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white hover:shadow-[0_0_48px_rgba(255,255,255,0.15)] active:scale-[0.98] sm:w-auto"
+          testId="run-test-button"
+          className="copy-cta mt-10 w-full max-w-sm rounded-2xl border border-neutral-700 bg-white px-10 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white active:scale-[0.98] sm:w-auto"
         >
           Check my browser
-        </button>
+        </ShimmerButton>
 
         <p className="mt-6 text-xs text-neutral-600">
           No permissions requested · Results stay on your device

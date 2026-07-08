@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { TestResults } from '../types'
 import { copyToClipboard, formatShareText } from '../utils/shareText'
+import { ShimmerButton } from './ShimmerButton'
 
 interface CopyShareButtonProps {
   results: TestResults
@@ -24,14 +25,12 @@ export function CopyShareButton({ results }: CopyShareButtonProps) {
       <p className="text-center text-sm font-medium text-neutral-400">
         Send us your results so we can help
       </p>
-      <button
-        type="button"
+      <ShimmerButton
         onClick={handleCopy}
-        data-testid="copy-share-button"
-        className="copy-cta group relative w-full overflow-hidden rounded-2xl border-2 border-white bg-white px-8 py-6 text-black transition-transform duration-300 active:scale-[0.99]"
+        testId="copy-share-button"
+        className="copy-cta w-full rounded-2xl border-2 border-white bg-white px-8 py-6 text-black transition-transform duration-300 active:scale-[0.99]"
       >
-        <span className="copy-shimmer pointer-events-none absolute inset-0" aria-hidden />
-        <span className="relative z-10 flex flex-col items-center gap-1.5">
+        <span className="flex flex-col items-center gap-1.5">
           {copied ? (
             <>
               <span className="flex items-center gap-2 text-xl font-black tracking-tight">
@@ -64,7 +63,7 @@ export function CopyShareButton({ results }: CopyShareButtonProps) {
             </>
           )}
         </span>
-      </button>
+      </ShimmerButton>
     </div>
   )
 }
