@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import Lottie from 'lottie-react'
 import type { ApiStatus } from '../types'
+import { LottieAnimation } from './LottieAnimation'
 
 const ANIMATION_MAP: Record<ApiStatus, string> = {
   supported: '/lottie/success.json',
@@ -44,7 +44,7 @@ export function StatusIcon({ status, size = 48 }: StatusIconProps) {
 
   return (
     <div className="shrink-0" style={{ width: size, height: size }}>
-      <Lottie animationData={animationData} loop={false} />
+      <LottieAnimation animationData={animationData} loop={false} />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Lottie from 'lottie-react'
+import { LottieAnimation } from './LottieAnimation'
 
 export function LoadingAnimation() {
   const [animationData, setAnimationData] = useState<object | null>(null)
@@ -15,7 +15,7 @@ export function LoadingAnimation() {
     <div className="flex flex-col items-center gap-8">
       <div className="h-24 w-24">
         {animationData ? (
-          <Lottie animationData={animationData} loop />
+          <LottieAnimation animationData={animationData} loop />
         ) : (
           <div className="h-full w-full animate-spin rounded-full border-2 border-neutral-700 border-t-white" />
         )}

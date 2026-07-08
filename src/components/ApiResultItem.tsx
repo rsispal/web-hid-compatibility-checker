@@ -16,8 +16,8 @@ const STATUS_STYLES = {
 export function ApiResultItem({ result, index }: ApiResultItemProps) {
   return (
     <li
-      className="animate-fade-in flex items-start gap-4 rounded-xl border border-neutral-800 bg-neutral-950/60 p-5 backdrop-blur-sm"
-      style={{ animationDelay: `${index * 120}ms`, opacity: 0 }}
+      className="animate-fade-in-delayed flex items-start gap-4 rounded-xl border border-neutral-800 bg-neutral-950/60 p-5 backdrop-blur-sm"
+      style={{ animationDelay: `${index * 120}ms` }}
     >
       <StatusIcon status={result.status} size={52} />
       <div className="min-w-0 flex-1 pt-1">
