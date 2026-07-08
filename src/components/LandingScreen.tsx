@@ -6,6 +6,7 @@ interface LandingScreenProps {
 export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
   return (
     <div
+      data-testid="landing-screen"
       className={`flex min-h-screen flex-col items-center justify-center px-6 transition-all duration-700 ${
         isExiting ? 'pointer-events-none scale-[0.98] opacity-0' : 'opacity-100'
       }`}
@@ -31,6 +32,7 @@ export function LandingScreen({ onStart, isExiting }: LandingScreenProps) {
         <button
           type="button"
           onClick={onStart}
+          data-testid="run-test-button"
           className="pulse-glow mt-10 w-full max-w-sm rounded-2xl border border-neutral-700 bg-white px-10 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white hover:shadow-[0_0_48px_rgba(255,255,255,0.15)] active:scale-[0.98] sm:w-auto"
         >
           Run compatibility test

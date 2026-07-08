@@ -31,6 +31,20 @@ npm run build
 npm run preview
 ```
 
+## E2E tests
+
+Playwright tests cover the full flow (landing → loading → results), status icon visibility, browser info table, and copy-to-clipboard.
+
+```bash
+npm run test:e2e
+```
+
+Record a demo walkthrough video:
+
+```bash
+npm run test:e2e:demo
+```
+
 ## Deploy on Vercel
 
 This project is configured for zero-config Vercel deployment. Connect the repository and Vercel will detect Vite automatically.

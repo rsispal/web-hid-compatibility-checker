@@ -49,7 +49,7 @@ export default function App() {
         )}
 
         {phase === 'loading' && (
-          <div className="flex min-h-screen items-center justify-center animate-fade-in">
+          <div className="flex min-h-screen items-center justify-center animate-fade-in" data-testid="loading-screen">
             <LoadingAnimation />
           </div>
         )}

@@ -7,38 +7,34 @@ interface StatusIconProps {
 
 const ICON_CONFIG: Record<
   ApiStatus,
-  { label: string; ring: string; icon: string; iconClass: string }
+  { label: string; ring: string; icon: string }
 > = {
   supported: {
     label: 'Supported',
-    ring: 'border-white/30 bg-white/5',
+    ring: 'border-white/40 bg-white/10',
     icon: 'text-white',
-    iconClass: 'status-pop',
   },
   warning: {
     label: 'Partial support',
-    ring: 'border-neutral-500/40 bg-neutral-500/10',
-    icon: 'text-neutral-200',
-    iconClass: 'status-pop',
+    ring: 'border-neutral-400/50 bg-neutral-500/15',
+    icon: 'text-neutral-100',
   },
   unsupported: {
     label: 'Not supported',
-    ring: 'border-neutral-700 bg-neutral-900',
-    icon: 'text-neutral-500',
-    iconClass: 'status-pop',
+    ring: 'border-neutral-600 bg-neutral-900',
+    icon: 'text-neutral-400',
   },
 }
 
 function CheckIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
+    <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden>
       <path
         d="M6 12.5L10 16.5L18 8"
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="status-draw"
       />
     </svg>
   )
@@ -46,13 +42,12 @@ function CheckIcon() {
 
 function CrossIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
+    <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden>
       <path
         d="M8 8L16 16M16 8L8 16"
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
-        className="status-draw"
       />
     </svg>
   )
@@ -60,22 +55,15 @@ function CrossIcon() {
 
 function WarningIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden>
+    <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden>
       <path
         d="M12 4L20 19H4L12 4Z"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinejoin="round"
-        className="status-draw"
       />
-      <path
-        d="M12 10V14"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        className="status-pop"
-      />
-      <circle cx="12" cy="17" r="1" fill="currentColor" className="status-pop" />
+      <path d="M12 10V14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="12" cy="17" r="1.25" fill="currentColor" />
     </svg>
   )
 }
@@ -92,17 +80,15 @@ export function StatusIcon({ status, size = 52 }: StatusIconProps) {
 
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center rounded-full border-2 ${config.ring}`}
+      data-testid={`status-icon-${status}`}
+      className={`status-icon relative flex shrink-0 items-center justify-center rounded-full border-2 ${config.ring}`}
       style={{ width: size, height: size }}
       role="img"
       aria-label={config.label}
     >
-      <span className={`${config.icon} ${config.iconClass}`}>
+      <span className={config.icon}>
         <Icon />
       </span>
-      {status === 'supported' && (
-        <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-white/20 status-ring" />
-      )}
     </div>
   )
 }

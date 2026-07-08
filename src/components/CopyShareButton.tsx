@@ -23,6 +23,7 @@ export function CopyShareButton({ results }: CopyShareButtonProps) {
     <button
       type="button"
       onClick={handleCopy}
+      data-testid="copy-share-button"
       className="group relative w-full overflow-hidden rounded-2xl border border-neutral-700 bg-white px-8 py-5 text-lg font-bold tracking-tight text-black transition-all duration-300 hover:border-white hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] active:scale-[0.99]"
     >
       <span className="relative z-10 flex items-center justify-center gap-3">

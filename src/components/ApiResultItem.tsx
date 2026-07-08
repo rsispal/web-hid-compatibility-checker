@@ -16,6 +16,7 @@ const STATUS_STYLES = {
 export function ApiResultItem({ result, index }: ApiResultItemProps) {
   return (
     <li
+      data-testid={`api-result-${result.id}`}
       className="animate-fade-in-delayed flex items-start gap-4 rounded-xl border border-neutral-800 bg-neutral-950/60 p-5 backdrop-blur-sm"
       style={{ animationDelay: `${index * 120}ms` }}
     >

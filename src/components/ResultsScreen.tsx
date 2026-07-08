@@ -12,7 +12,7 @@ export function ResultsScreen({ results, onRetest }: ResultsScreenProps) {
   const supportedCount = results.apis.filter((a) => a.status === 'supported').length
 
   return (
-    <div className="animate-fade-in mx-auto w-full max-w-2xl px-6 py-16">
+    <div className="animate-fade-in mx-auto w-full max-w-2xl px-6 py-16" data-testid="results-screen">
       <header className="mb-10 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
           Diagnostics complete
